@@ -96,7 +96,7 @@ export default function ChatView() {
         personas={personas}
         onSwitchPersona={handleSwitchPersona}
         onReset={handleReset}
-        messages={messages}
+        // messages={messages}
         onMenuToggle={toggleSidebar}
       />
       {loadingHistory ? (
