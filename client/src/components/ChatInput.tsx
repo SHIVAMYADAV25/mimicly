@@ -59,7 +59,7 @@ export default function ChatInput({
 
   return (
     <div className="p-3 border-t border-border bg-surface">
-      <form onSubmit={submit} className="rounded-2xl border border-border bg-white overflow-hidden focus-within:border-ink-quiet transition-colors">
+      <form onSubmit={submit} className="rounded-2xl border border-border bg-white focus-within:border-ink-quiet transition-colors">
         <div className="flex items-start gap-2 px-4 pt-3">
           <Sparkles className="w-4 h-4 text-ink-quiet mt-0.5 shrink-0" strokeWidth={2} />
           <textarea
@@ -69,7 +69,7 @@ export default function ChatInput({
             onKeyDown={handleKeyDown}
             rows={1}
             placeholder="Ask me anything..."
-            className="flex-1 bg-transparent resize-none outline-none text-[14px] text-ink placeholder:text-ink-quiet py-1 max-h-32"
+            className="flex-1 bg-transparent resize-none text-[14px] text-ink placeholder:text-ink-quiet py-1 max-h-32 border-none outline-none focus:outline-none focus:ring-0"
           />
         </div>
 
