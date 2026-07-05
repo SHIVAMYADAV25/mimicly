@@ -1,4 +1,4 @@
-# Persona AI — Chat with Hitesh & Piyush (AI simulations)
+# Mimicly — Chat with Mentor (AI simulations)
 
 An AI-powered chat app that simulates conversations with two well-known Indian
 coding educators, **Hitesh** and **Piyush**, built for the *GenAI with JS 2026*
