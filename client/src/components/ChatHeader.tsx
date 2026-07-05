@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { Check, ChevronDown, Copy, Menu, Plus } from 'lucide-react';
+import { ChevronDown, Menu, Plus } from 'lucide-react';
 import Avatar from './Avatar';
 import PersonaSwitchList from './PersonaSwitchList';
-import type { ChatMessage, Persona, PersonaId } from '../types';
+import type { Persona, PersonaId } from '../types';
 
 interface ChatHeaderProps {
   persona: Persona;
   personas: Persona[];
   onSwitchPersona: (id: PersonaId) => void;
   onReset: () => void;
-  messages: ChatMessage[];
+  // messages: ChatMessage[];
   onMenuToggle?: () => void;
 }
 
@@ -18,11 +18,12 @@ export default function ChatHeader({
   personas,
   onSwitchPersona,
   onReset,
-  messages,
+  // messages,
   onMenuToggle,
 }: ChatHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
+  // COMMENTED OUT UNUSED STATE TO FIX BUILD ERROR
+  // const [copied, setCopied] = useState(false); 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -35,6 +36,8 @@ export default function ChatHeader({
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
+  // COMMENTED OUT UNUSED FUNCTION TO FIX BUILD ERROR
+  /*
   async function handleCopySession(): Promise<void> {
     const text = messages
       .map((m) => `${m.role === 'user' ? 'You' : persona.displayName}: ${m.content}`)
@@ -44,12 +47,12 @@ export default function ChatHeader({
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
     } catch {
-      /* clipboard may be unavailable; silently ignore */
     }
   }
+  */
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 bg-surface border-b border-border relative">
+    <div className="flex items-center justify-between px-4 py-2 bg-surface border-b border-border rounded-2xl relative">
       <div className="flex items-center gap-2 min-w-0">
         <button
           type="button"
@@ -95,7 +98,7 @@ export default function ChatHeader({
       </div>
 
       <div className="flex items-center gap-2 shrink-0">
-        <button
+        {/* <button
           type="button"
           onClick={handleCopySession}
           disabled={!messages.length}
@@ -112,7 +115,7 @@ export default function ChatHeader({
               Copy session
             </>
           )}
-        </button>
+        </button> */}
         <button
           type="button"
           onClick={onReset}
