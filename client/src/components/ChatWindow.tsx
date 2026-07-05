@@ -1,9 +1,16 @@
 import { useEffect, useRef } from 'react';
 import MessageBubble from './MessageBubble';
 import TypingIndicator from './TypingIndicator';
+import type { ChatMessage, Persona } from '../types';
 
-export default function ChatWindow({ messages, persona, isTyping }) {
-  const bottomRef = useRef(null);
+interface ChatWindowProps {
+  messages: ChatMessage[];
+  persona: Persona;
+  isTyping: boolean;
+}
+
+export default function ChatWindow({ messages, persona, isTyping }: ChatWindowProps) {
+  const bottomRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });

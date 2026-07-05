@@ -1,9 +1,9 @@
-require('dotenv').config();
-const fs = require('fs');
-const path = require('path');
-const { pool } = require('./pool');
+import 'dotenv/config';
+import fs from 'fs';
+import path from 'path';
+import { pool } from './pool';
 
-async function migrate() {
+async function migrate(): Promise<void> {
   const sql = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
   await pool.query(sql);
   // eslint-disable-next-line no-console
@@ -11,7 +11,7 @@ async function migrate() {
   await pool.end();
 }
 
-migrate().catch((err) => {
+migrate().catch((err: unknown) => {
   // eslint-disable-next-line no-console
   console.error('Migration failed:', err);
   process.exit(1);

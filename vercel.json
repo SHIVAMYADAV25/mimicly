@@ -3,7 +3,7 @@
   "buildCommand": "npm run build:client",
   "outputDirectory": "client/dist",
   "functions": {
-    "api/index.js": {
+    "api/index.ts": {
       "memory": 512,
       "maxDuration": 30
     }

@@ -1,6 +1,13 @@
 import ReactMarkdown from 'react-markdown';
+import type { ChatRole, Persona } from '../types';
 
-export default function MessageBubble({ role, content, persona }) {
+interface MessageBubbleProps {
+  role: ChatRole;
+  content: string;
+  persona: Persona;
+}
+
+export default function MessageBubble({ role, content, persona }: MessageBubbleProps) {
   const isUser = role === 'user';
 
   if (isUser) {

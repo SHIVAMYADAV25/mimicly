@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+import { Pool } from 'pg';
 
 if (!process.env.DATABASE_URL) {
   // eslint-disable-next-line no-console
@@ -7,12 +7,10 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-const pool = new Pool({
+export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL?.includes('sslmode=require')
     ? { rejectUnauthorized: false }
     : undefined,
   max: 5,
 });
-
-module.exports = { pool };

@@ -1,4 +1,12 @@
-export default function PersonaSwitcher({ personas, activeId, onSwitch }) {
+import type { Persona, PersonaId } from '../types';
+
+interface PersonaSwitcherProps {
+  personas: Persona[];
+  activeId: PersonaId;
+  onSwitch: (id: PersonaId) => void;
+}
+
+export default function PersonaSwitcher({ personas, activeId, onSwitch }: PersonaSwitcherProps) {
   return (
     <div className="flex gap-1 px-3 pt-3">
       {personas.map((p) => {

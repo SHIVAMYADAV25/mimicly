@@ -2,14 +2,16 @@
   "name": "persona-ai",
   "version": "1.0.0",
   "private": true,
-  "description": "Chat with AI personas of Hitesh Choudhary and Piyush Garg (stylistic simulation) — PERN + Neon + Vercel + OpenAI.",
-  "main": "server/index.js",
+  "description": "Chat with AI personas of Hitesh Choudhary and Piyush Garg (stylistic simulation) — PERN + Neon + Vercel + OpenAI, written in TypeScript.",
+  "main": "server/dist/index.js",
   "scripts": {
-    "dev:server": "nodemon server/index.js",
-    "start": "node server/index.js",
+    "dev:server": "tsx watch server/src/index.ts",
+    "build:server": "tsc -p server/tsconfig.json && cp server/src/db/schema.sql server/dist/db/schema.sql",
+    "start": "node server/dist/index.js",
     "dev:client": "npm --prefix client run dev",
     "build:client": "npm --prefix client install && npm --prefix client run build",
-    "db:migrate": "node server/db/migrate.js"
+    "typecheck": "tsc -p tsconfig.json --noEmit && npm --prefix client run typecheck",
+    "db:migrate": "tsx server/src/db/migrate.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -19,7 +21,12 @@
     "pg": "^8.12.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "@types/pg": "^8.11.6",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
   },
   "engines": {
     "node": ">=18"

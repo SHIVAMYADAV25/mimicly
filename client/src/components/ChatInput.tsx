@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useState, type FormEvent, type KeyboardEvent } from 'react';
+import type { Persona } from '../types';
 
-export default function ChatInput({ onSend, disabled, persona }) {
-  const [value, setValue] = useState('');
+interface ChatInputProps {
+  onSend: (message: string) => void;
+  disabled: boolean;
+  persona: Persona;
+}
 
-  function submit(e) {
+export default function ChatInput({ onSend, disabled, persona }: ChatInputProps) {
+  const [value, setValue] = useState<string>('');
+
+  function submit(e: FormEvent): void {
     e.preventDefault();
     const trimmed = value.trim();
     if (!trimmed || disabled) return;
@@ -11,7 +18,7 @@ export default function ChatInput({ onSend, disabled, persona }) {
     setValue('');
   }
 
-  function handleKeyDown(e) {
+  function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>): void {
     if (e.key === 'Enter' && !e.shiftKey) {
       submit(e);
     }

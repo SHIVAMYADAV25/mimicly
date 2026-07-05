@@ -1,4 +1,11 @@
-export default function PersonaHeader({ persona, onReset }) {
+import type { Persona } from '../types';
+
+interface PersonaHeaderProps {
+  persona: Persona;
+  onReset: () => void;
+}
+
+export default function PersonaHeader({ persona, onReset }: PersonaHeaderProps) {
   return (
     <div className="flex items-center justify-between px-4 py-3 bg-panel border-b border-white/5">
       <div>

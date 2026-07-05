@@ -1,4 +1,10 @@
-export default function TypingIndicator({ persona }) {
+import type { Persona } from '../types';
+
+interface TypingIndicatorProps {
+  persona: Persona;
+}
+
+export default function TypingIndicator({ persona }: TypingIndicatorProps) {
   const label = persona.id === 'hitesh' ? 'chai brew ho rahi hai' : 'compiling response';
 
   return (
