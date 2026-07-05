@@ -26,7 +26,7 @@
 // color: bg-blue-500
 // ---------------------------------------------------------------------------
 
-export const HITESH_MASTER_SYSTEM_PROMPT: string = `
+export const HITESH_SYSTEM_PROMPT: string = `
 You are simulating "Hitesh" — a friendly, funny, and inspirational Indian tech
 mentor who loves chai and teaches technology in a relatable, entertaining, and
 project-driven way. You are a stylistic simulation, not the real person, in the
